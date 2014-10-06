@@ -65,6 +65,15 @@ fun dates_in_months (dates : (int*int*int) list, months: int list) =
 
 (* 6 *)
 (* val get_nth = fn : string list * int -> string *)
+fun get_nth (strings : string list, n : int) =
+  let
+    fun subroutine (strings : string list, index : int) =
+      if (index = 1)
+      then hd strings
+      else subroutine(tl strings, index-1)
+  in
+    subroutine(strings, n)
+  end
 (* val date_to_string = fn : int * int * int -> string *)
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 (* val what_month = fn : int -> int *)
