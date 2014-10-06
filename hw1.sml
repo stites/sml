@@ -11,9 +11,9 @@ fun is_older (date1 : int*int*int, date2 : int*int*int ) =
 
 (* 2 *)
 (* number_in_month : int*int*int list, int -> int *)
-fun number_in_month (dates : int*int*int list, month: int) =
+fun number_in_month (dates : (int*int*int) list, month: int) =
   let
-    fun subroutine (dates : int*int*int list, count : int) =
+    fun subroutine (dates : (int*int*int) list, count : int) =
       if (null dates)
       then count
       else
