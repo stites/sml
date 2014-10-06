@@ -1,7 +1,7 @@
 (* homework 1 for Programming Languages (Coursera / University of Washington) *)
 
 (* 1 *)
-(* is_older : (int * int * int) * (int * int * int) -> bool *)
+(* val is_older = fn : (int * int * int) * (int * int * int) -> bool *)
 fun is_older (date1 : int*int*int, date2 : int*int*int ) =
   if   (#1 date1) <> (#1 date2)
   then (#1 date1) <  (#1 date2)
@@ -10,7 +10,7 @@ fun is_older (date1 : int*int*int, date2 : int*int*int ) =
     else  (#3 date1) <  (#3 date2)
 
 (* 2 *)
-(* number_in_month : int*int*int list, int -> int *)
+(* val number_in_month = fn : (int * int * int) list * int -> int *)
 fun number_in_month (dates : (int*int*int) list, month: int) =
   let
     fun subroutine (dates : (int*int*int) list, count : int) =
@@ -25,7 +25,7 @@ fun number_in_month (dates : (int*int*int) list, month: int) =
   end
 
 (* 3 *)
-(* number_in_months : 'int*int*int list, 'int list -> int *)
+(* val number_in_months = fn : (int * int * int) list * int list -> int *)
 fun number_in_months (dates : (int*int*int) list, months: int list) =
   let
     fun subroutine (months : int list, count : int) =
@@ -37,8 +37,7 @@ fun number_in_months (dates : (int*int*int) list, months: int list) =
   end
 
 (* 4 *)
-(* dates_in_month : 'int*int*int list, 'int list -> 'int*int*int list *)
-
+(* val dates_in_month = fn : (int * int * int) list * int -> (int * int * int) list *)
 fun dates_in_month (dates : (int*int*int) list, month: int) =
   let
     fun subroutine ( dates : (int*int*int) list, dates_in_month : (int*int*int) list ) =
@@ -53,7 +52,7 @@ fun dates_in_month (dates : (int*int*int) list, month: int) =
   end
 
 (* 5 *)
-(* dates_in_months : 'int*int*int list, 'int*int*int list -> 'int*int*int list *)
+(* val dates_in_months = fn : (int * int * int) list * int list -> (int * int * int) list *)
 fun dates_in_months (dates : (int*int*int) list, months: int list) =
   let
     fun subroutine (months : int list, months_memo : (int*int*int) list) =
@@ -63,3 +62,11 @@ fun dates_in_months (dates : (int*int*int) list, months: int list) =
   in
     subroutine(months, [])
   end
+
+(* 6 *)
+(* val get_nth = fn : string list * int -> string *)
+(* val date_to_string = fn : int * int * int -> string *)
+(* val number_before_reaching_sum = fn : int * int list -> int *)
+(* val what_month = fn : int -> int *)
+(* val month_range = fn : int * int -> int list *)
+(* val oldest = fn : (int * int * int) list -> (int * int * int) option *)
