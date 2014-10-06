@@ -46,7 +46,7 @@ fun dates_in_month (dates : (int*int*int) list, month: int) =
       then dates_in_month
       else
         if (#2(hd dates) = month)
-        then subroutine( tl dates, (hd dates)::dates_in_month )
+        then subroutine( tl dates, dates_in_month@[hd dates] )
         else subroutine( tl dates, dates_in_month )
   in
     subroutine(dates, [])
