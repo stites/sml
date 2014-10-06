@@ -41,7 +41,7 @@ fun number_in_months (dates : (int*int*int) list, months: int list) =
 
 fun dates_in_month (dates : (int*int*int) list, month: int) =
   let
-    fun subroutine ( dates : 'int*int*int list, dates_in_month 'int*int*int list ) =
+    fun subroutine ( dates : (int*int*int) list, dates_in_month : (int*int*int) list ) =
       if (null dates)
       then dates_in_month
       else

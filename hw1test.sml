@@ -22,9 +22,11 @@ val test3_0 = number_in_months([],[2,3,4]) = 0
 val test3_1 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = 0
 (* val test3_2 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,2,2]) = 1*)
 
-(*
 val test4 = dates_in_month([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
+val test4_0 = dates_in_month([],2) = []
+val test4_1 = dates_in_month([(2012,2,28),(2013,12,1)],3) = []
 
+(*
 val test5 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
 
 val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
