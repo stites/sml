@@ -52,3 +52,14 @@ fun dates_in_month (dates : (int*int*int) list, month: int) =
     subroutine(dates, [])
   end
 
+(* 5 *)
+(* dates_in_months : 'int*int*int list, 'int*int*int list -> 'int*int*int list *)
+fun dates_in_months (dates : (int*int*int) list, months: int list) =
+  let
+    fun subroutine (months : int list, months_memo : (int*int*int) list) =
+      if (null months)
+      then months_memo
+      else subroutine(tl months, months_memo@dates_in_month(dates, hd months))
+  in
+    subroutine(months, [])
+  end
