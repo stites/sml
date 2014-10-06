@@ -4,6 +4,8 @@
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
 
 
+(* user-defined tests are post-fixed with a _ followed by the test index *)
+
 val test1   = is_older((1,2,3),(2,3,4)) = true
 val test1_0 = is_older((1,2,3),(1,3,4)) = true
 val test1_1 = is_older((1,2,3),(1,2,4)) = true
@@ -17,17 +19,21 @@ val test2_0 = number_in_month([(2012,2,28),(2013,2,1)], 2) = 2
 val test2_1 = number_in_month([(2012,2,28),(2013,2,1)], 1) = 0
 val test2_2 = number_in_month([], 2) = 0
 
-val test3 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = 3
+val test3   = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = 3
 val test3_0 = number_in_months([],[2,3,4]) = 0
 val test3_1 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = 0
-(* val test3_2 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,2,2]) = 1*)
 
-val test4 = dates_in_month([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
+val test4   = dates_in_month([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
 val test4_0 = dates_in_month([],2) = []
 val test4_1 = dates_in_month([(2012,2,28),(2013,12,1)],3) = []
+val test4_2 = dates_in_month([(2012,2,28),(2013,2,1)],2) = [(2012,2,28),(2013,2,1)]
 
 (*
 val test5 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
+val test5_0 = dates_in_months([],[2,3,4]) = []
+val test5_1 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = []
+val test5_2 = dates_in_months([(2012,2,28),(2013,2,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2013,2,1),(2011,3,31),(2011,4,28)]
+val test5_3 = dates_in_months([(2012,2,28),(2013,2,1),(2011,3,31),(2011,4,28)],[1,5,7]) = []
 
 val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
 
