@@ -17,7 +17,7 @@ fun number_in_month (dates : (int*int*int) list, month: int) =
       if (null dates)
       then count
       else
-        if (#2 hd(dates) = month)
+        if (#2(hd dates) = month)
         then subroutine( tl dates, count+1 )
         else subroutine( tl dates, count   )
   in
