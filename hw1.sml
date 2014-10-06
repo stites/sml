@@ -23,3 +23,15 @@ fun number_in_month (dates : (int*int*int) list, month: int) =
   in
     subroutine(dates, 0)
   end
+
+(* 3 *)
+(* number_in_months : 'int*int*int list, 'int list -> int *)
+fun number_in_months (dates : (int*int*int) list, months: int list) =
+  let
+    fun subroutine (months : int list, count : int) =
+      if (null months)
+      then count 
+      else subroutine(tl months, count + number_in_month(dates, hd months))
+  in
+    subroutine(months, 0)
+  end
