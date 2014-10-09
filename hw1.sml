@@ -74,8 +74,35 @@ fun get_nth (strings : string list, n : int) =
   in
     subroutine(strings, n)
   end
+
+(* 7 *)
 (* val date_to_string = fn : int * int * int -> string *)
+fun date_to_string ( date : (int*int*int) ) =
+  get_nth([
+           "January",
+           "February",
+           "March",
+           "April",
+           "May",
+           "June",
+           "July",
+           "August",
+           "September",
+           "October",
+           "November",
+           "December"
+         ], #2 date) ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
+(* 8 *)
 (* val number_before_reaching_sum = fn : int * int list -> int *)
+fun number_before_reaching_sum ( sum : int , int_list : int list ) =
+  let
+    fun subroutine ( items : int list, current_sum : int ) =
+      if ((hd items) + current_sum >= sum)
+      then hd items
+      else subroutine(tl items, (hd items) + current_sum)
+  in
+    subroutine(int_list, 0)
+  end
 (* val what_month = fn : int -> int *)
 (* val month_range = fn : int * int -> int list *)
 (* val oldest = fn : (int * int * int) list -> (int * int * int) option *)

@@ -37,9 +37,9 @@ val test5_3 = dates_in_months([(2012,2,28),(2013,2,1),(2011,3,31),(2011,4,28)],[
 val test6   = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
 val test6_0 = get_nth(["hi", "there", "how", "are", "you"], 1) = "hi"
 
-(*
-val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013"
+val test7   = date_to_string((2013, 6, 1)) = "June 1, 2013"
 
+(*
 val test8 = number_before_reaching_sum(10, [1,2,3,4,5]) = 3
 
 val test9 = what_month(70) = 3
