@@ -91,7 +91,7 @@ fun date_to_string ( date : (int*int*int) ) =
            "October",
            "November",
            "December"
-         ], #2 date) ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
+         ], #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
 (* 8 *)
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 fun number_before_reaching_sum ( sum : int , int_list : int list ) =
