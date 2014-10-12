@@ -97,7 +97,7 @@ fun date_to_string ( date : (int*int*int) ) =
 fun number_before_reaching_sum ( sum : int , int_list : int list ) =
   let
     fun subroutine ( items : int list, current_item : int,  current_sum : int ) =
-      if (items = [] orelse (current_item + current_sum >= sum))
+      if (items = [] orelse (current_item + current_sum > sum))
       then current_item
       else subroutine(tl items, hd items, current_item + current_sum)
   in

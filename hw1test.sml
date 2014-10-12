@@ -42,7 +42,7 @@ val test7_0 = date_to_string((2013, 6, 1)) = "June 1, 2013"
 
 val test8_0 = number_before_reaching_sum(10, [1,2,3,4,5]) = 3
 val test8_1 = number_before_reaching_sum(100, [1,2,3,4,5]) = 5
-val test8_2 = number_before_reaching_sum(2, [1,2,3,4,5]) = 1
+val test8_2 = number_before_reaching_sum(2, [1,2,3,4,5]) = 2
 
 (*
 val test9 = what_month(70) = 3
