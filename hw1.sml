@@ -96,12 +96,17 @@ fun date_to_string ( date : (int*int*int) ) =
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 fun number_before_reaching_sum ( sum : int , int_list : int list ) =
   let
-    fun subroutine ( items : int list, current_item : int,  current_sum : int ) =
-      if (items = [] orelse (current_item + current_sum > sum))
-      then current_item
-      else subroutine(tl items, hd items, current_item + current_sum)
+    fun subroutine ( items        : int list,
+                     current_sum  : int ) =
+      (* edge case of items being empty *)
+      if (items = []) then 0 else
+
+      if (tl items = [] orelse ( hd(tl items) + current_sum >= sum))
+      then hd items
+      else
+        subroutine(tl items, hd items + current_sum)
   in
-    subroutine(tl int_list, hd int_list,  0)
+    subroutine(int_list, 0)
   end
 (* val what_month = fn : int -> int *)
 (* val month_range = fn : int * int -> int list *)
