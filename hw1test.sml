@@ -80,3 +80,8 @@ val s_0 = make_unique_int_list([1,1,2])
 val d_0 = make_unique_int_list([1,1])
 val h_0 = make_unique_int_list([1,2,2])
 val n_0 = make_unique_int_list([1,2,3,3])
+
+val test13_i = number_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[3,2,3,4]) = 3
+val test13_0 = number_in_months_challenge([],[2,2,3,4]) = 0
+val test13_1 = number_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = 0
+
