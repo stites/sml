@@ -92,6 +92,7 @@ fun date_to_string ( date : (int*int*int) ) =
            "November",
            "December"
          ], #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
+
 (* 8 *)
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 fun number_before_reaching_sum ( sum : int , int_list : int list ) =
@@ -110,6 +111,7 @@ fun number_before_reaching_sum ( sum : int , int_list : int list ) =
     then 0
     else subroutine(tl int_list, hd int_list, 1, 0)
   end
+
 (* 9 *)
 (* val what_month = fn : int -> int *)
 fun what_month ( day_of_year : int ) =
@@ -148,3 +150,32 @@ fun oldest ( date_list : (int*int*int) list) =
       subroutine(hd date_list, tl date_list)
     end
 
+(* 12 *)
+fun add_to_int_set (set : int list, added_item : int) =
+  let
+    fun is_allowed (remaining_set : int list) =
+      if (null remaining_set)
+      then true
+      else if (hd remaining_set = added_item) 
+        then false
+        else is_allowed(tl remaining_set)
+  in
+    if (is_allowed(set))
+    then added_item::set
+    else set
+  end
+
+fun make_unique_int_list (items : int list) =
+  if null items
+  then []
+  else let
+    fun iterate_through_items (remaining: int list) =
+      iterate_through_items( add_to_int_set(tl remaining, hd remaining) )
+    in
+      iterate_through_items(items)
+  end
+
+fun number_in_months_challenge (dates : (int*int*int) list, months: int list) =
+  number_in_months(dates, make_unique_int_list(months))
+fun dates_in_months_challenge (dates : (int*int*int) list, months: int list) =
+  dates_in_months(dates, make_unique_int_list(months))
