@@ -40,7 +40,8 @@ val test6_0 = get_nth(["hi", "there", "how", "are", "you"], 1) = "hi"
 val test7_i = date_to_string((2014, 10, 9)) = "October 9, 2014"
 val test7_0 = date_to_string((2013, 6, 1)) = "June 1, 2013"
 
-val test8_0 = number_before_reaching_sum(2,   [1,2,3,4,5]) = 1
+val test8_i = number_before_reaching_sum(1,   [1,2,3,4,5]) = 0
+val test8_0 = number_before_reaching_sum(2,   [1,2,3,4,5]) (* = 1*)
 val test8_1 = number_before_reaching_sum(3,   [1,2,3,4,5]) = 1
 val test8_2 = number_before_reaching_sum(4,   [1,2,3,4,5]) = 2
 val test8_3 = number_before_reaching_sum(5,   [1,2,3,4,5]) = 2

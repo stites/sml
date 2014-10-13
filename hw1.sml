@@ -96,22 +96,22 @@ fun date_to_string ( date : (int*int*int) ) =
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 fun number_before_reaching_sum ( sum : int , int_list : int list ) =
   let
-    fun subroutine ( items        : int list,
+    fun subroutine ( remaining    : int list,
                      current_item : int,
                      current_idx  : int,
                      current_sum  : int ) =
-      (* edge case of items being empty *)
-      if (items = [] orelse (hd items+current_item+current_sum) >= sum )
+      (* edge case of remaining being empty *)
+      if (remaining = [] orelse (hd remaining+current_item+current_sum) >= sum )
       then current_idx
       else
-        subroutine(tl items, hd items, current_idx+1, current_item+current_sum)
+        subroutine(tl remaining, hd remaining, current_idx+1, current_item+current_sum)
   in
-    subroutine(tl int_list, hd int_list, 1, 0)
+    subroutine(tl int_list, hd int_list, 0, 0)
   end
 (* 9 *)
 (* val what_month = fn : int -> int *)
 fun what_month ( day_of_year : int ) =
-  number_before_reaching_sum(
+  1+number_before_reaching_sum(
     day_of_year,
     [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
 (* val month_range = fn : int * int -> int list *)
