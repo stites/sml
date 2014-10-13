@@ -49,7 +49,7 @@ val test8_5 = number_before_reaching_sum(7,   [1,2,3,4,5]) = 3
 val test8_6 = number_before_reaching_sum(8,   [1,2,3,4,5]) = 3
 val test8_7 = number_before_reaching_sum(9,   [1,2,3,4,5]) = 3
 val test8_8 = number_before_reaching_sum(10,  [1,2,3,4,5]) = 3
-val test8_9 = number_before_reaching_sum(11,  [1,2,3,4,5]) = 4
+val test8_9 = number_before_reaching_sum(11,  [10,2,3,4,5]) = 1
 val test8_a = number_before_reaching_sum(12,  [1,2,3,4,5]) = 4
 val test8_b = number_before_reaching_sum(13,  [1,2,3,4,5]) = 4
 val test8_c = number_before_reaching_sum(14,  [1,2,3,4,5]) = 4
@@ -58,8 +58,10 @@ val test8_e = number_before_reaching_sum(16,  [1,2,3,4,5]) = 5
 val test8_f = number_before_reaching_sum(17,  [1,2,3,4,5]) = 5
 val test8_g = number_before_reaching_sum(100, [1,2,3,4,5]) = 5
 
+val test9_0 = what_month(70) (* = 3 *)
+val test9_1 = what_month(1) (* = 1 *)
+val test9_2 = what_month(365) (* = 12 *)
 (*
-val test9 = what_month(70) = 3
 
 val test10 = month_range(31, 34) = [1,2,2,2]
 
