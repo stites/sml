@@ -106,7 +106,9 @@ fun number_before_reaching_sum ( sum : int , int_list : int list ) =
       else
         subroutine(tl remaining, hd remaining, current_idx+1, current_item+current_sum)
   in
-    subroutine(tl int_list, hd int_list, 0, 0)
+    if (hd int_list >= sum)
+    then 0
+    else subroutine(tl int_list, hd int_list, 1, 0)
   end
 (* 9 *)
 (* val what_month = fn : int -> int *)
