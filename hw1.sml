@@ -30,7 +30,7 @@ fun number_in_months (dates : (int*int*int) list, months: int list) =
   let
     fun subroutine (months : int list, count : int) =
       if (null months)
-      then count 
+      then count
       else subroutine(tl months, count + number_in_month(dates, hd months))
   in
     subroutine(months, 0)
