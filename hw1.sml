@@ -182,12 +182,3 @@ fun number_in_months_challenge (dates : (int*int*int) list, months: int list) =
 fun dates_in_months_challenge (dates : (int*int*int) list, months: int list) =
   dates_in_months(dates, make_unique_int_list(months))
 
-(* 13 *)
-fun reasonable_date (date : (int*int*int) list ) =
-  (* cowboy coding this - only have 20min left! *)
-  if (#1 date <= 0)
-  then false
-  else if (#2 date > 12 orelse #2 date < 1)
-    then false
-  (* : D nevermind! just going to submit... maybe I'll get a test or two on this *)
-    else (#3 date > 31 orelse #3 date < 0)
