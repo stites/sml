@@ -167,12 +167,14 @@ fun add_to_int_set (set : int list, added_item : int) =
 
 fun make_unique_int_list (items : int list) =
   if null items
-  then []
+  then items
   else let
-    fun iterate_through_items (remaining: int list) =
-      iterate_through_items( add_to_int_set(tl remaining, hd remaining) )
+    fun iterate_through_items (remaining: int list, set : int list) =
+      if null remaining
+      then set
+      else iterate_through_items( tl remaining, add_to_int_set(set, hd remaining) )
     in
-      iterate_through_items(items)
+      iterate_through_items(items, [])
   end
 
 fun number_in_months_challenge (dates : (int*int*int) list, months: int list) =

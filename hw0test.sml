@@ -19,4 +19,3 @@ by deleting the first two character and last two characters on the line *)
 
 (* val test6 = triple ~1 = ~3 *)
 
-                        

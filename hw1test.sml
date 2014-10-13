@@ -72,3 +72,11 @@ val test11_1 = oldest([(2012,2,28),(2011,3,31),(2011,4,28)]) = SOME (2011,3,31)
 val test11_0 = oldest([(2012,2,28)]) = SOME (2012,2,28)
 val test11_i = oldest([(2012,2,28),(2012,2,28)]) = SOME (2012,2,28)
 val test11_2 = oldest([]) = NONE
+                        
+val t_0 = make_unique_int_list([])
+val a_0 = make_unique_int_list([1])
+val r_0 = make_unique_int_list([1,2])
+val s_0 = make_unique_int_list([1,1,2])
+val d_0 = make_unique_int_list([1,1])
+val h_0 = make_unique_int_list([1,2,2])
+val n_0 = make_unique_int_list([1,2,3,3])
