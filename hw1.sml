@@ -129,4 +129,23 @@ fun month_range (start_day : int, end_day : int) =
     subroutine([], start_day)
   end
 
+(* 11 *)
 (* val oldest = fn : (int * int * int) list -> (int * int * int) option *)
+fun oldest ( date_list : (int*int*int) list) =
+  if null date_list
+  then NONE
+  else
+    if null tl date_list
+    then SOME (hd date_list)
+    else let
+      fun subroutine (oldest_date : (int*int*int), date_list : (int*int*int) list) =
+         if null date_list
+         then SOME oldest_date
+         else if (~is_older(oldest_date, hd date_list))
+           then subroutine(oldest_date, tl date_list)
+           else subroutine(hd date_list, tl date_list)
+         then
+    in
+      subroutine(hd date_list, tl date_list)
+    end
+
