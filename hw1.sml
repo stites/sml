@@ -144,7 +144,6 @@ fun oldest ( date_list : (int*int*int) list) =
          else if (~is_older(oldest_date, hd date_list))
            then subroutine(oldest_date, tl date_list)
            else subroutine(hd date_list, tl date_list)
-         then
     in
       subroutine(hd date_list, tl date_list)
     end
