@@ -116,5 +116,17 @@ fun what_month ( day_of_year : int ) =
   1+number_before_reaching_sum(
     day_of_year,
     [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
+
+(* 10 *)
 (* val month_range = fn : int * int -> int list *)
+fun month_range (start_day : int, end_day : int) =
+  let
+    fun subroutine (month_list : int list, next_day : int) =
+      if (next_day > end_day)
+      then month_list
+      else subroutine(month_list@[what_month(next_day)], next_day+1)
+  in
+    subroutine([], start_day)
+  end
+
 (* val oldest = fn : (int * int * int) list -> (int * int * int) option *)
