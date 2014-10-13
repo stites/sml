@@ -135,13 +135,13 @@ fun oldest ( date_list : (int*int*int) list) =
   if null date_list
   then NONE
   else
-    if null tl date_list
+    if null(tl date_list)
     then SOME (hd date_list)
     else let
       fun subroutine (oldest_date : (int*int*int), date_list : (int*int*int) list) =
          if null date_list
          then SOME oldest_date
-         else if (~is_older(oldest_date, hd date_list))
+         else if (is_older(oldest_date, hd date_list))
            then subroutine(oldest_date, tl date_list)
            else subroutine(hd date_list, tl date_list)
     in
