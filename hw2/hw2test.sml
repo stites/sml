@@ -3,9 +3,15 @@
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
 
-val test1 = all_except_option("string", ["string"]) = SOME []
-
-val test2 = get_substitutions1([["foo"],["there"]], "foo") = []
+val test11 = all_except_option("string", ["string"]) = SOME []
+val test12 = all_except_option("string", ["arst","string"]) = SOME ["arst"]
+val test13 = all_except_option("string", ["tring"]) = NONE
+val test14 = all_except_option("string", ["arst","string","tsra"]) = SOME ["arst","tsra"]
+val test15 = all_except_option("string", ["string","arst"]) = SOME ["arst"]
+(*
+val test20 = get_substitutions1([["foo"],["there"]], "foo") = []
+val test21 = get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]], "Jeff") =  ["Fredrick","Freddie","F"]
+val test22 = get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]], "Jeff") =  ["Jeffrey","Geoff","Jeffrey"]
 
 val test3 = get_substitutions2([["foo"],["there"]], "foo") = []
 
@@ -35,7 +41,6 @@ val test12 = officiate([(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)],
 val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                          [Draw,Discard(Hearts,Jack)],
                          42);
-               false) 
+               false)
               handle IllegalMove => true)
-             
-             
+*)
