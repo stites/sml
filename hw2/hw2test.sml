@@ -31,16 +31,33 @@ val test41 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie"
 	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
 	     {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
 
-(*
 val test5 = card_color((Clubs, Num 2)) = Black
+val test50= card_color((Spades, Num 2)) = Black
+val test50= card_color((Diamonds, Num 2)) = Red
 
-val test6 = card_value((Clubs, Num 2)) = 2
+val test61= card_value((Clubs, Ace)) = 11
+val test62= card_value((Clubs, Queen)) = 10
+val test63= card_value((Clubs, Jack )) =10
+val test64= card_value((Clubs, King )) =10
+val test65= card_value((Clubs, Num 2)) = 2
 
-val test7 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+val test70 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+val test71 = remove_card([(Hearts, Ace),(Spades, Num 10)], (Hearts, Ace), IllegalMove) = [(Spades, Num 10)]
+val test72 = ((remove_card([(Diamonds, Ace), (Hearts, Ace)], (Spades, King), IllegalMove) ; false) handle IllegalMove => true)
+val test73 = ((remove_card([], (Spades, King), IllegalMove) ; false) handle IllegalMove => true)
 
-val test8 = all_same_color([(Hearts, Ace), (Hearts, Ace)]) = true
+val test81= all_same_color([]) = true
+val test81= all_same_color([(Clubs,Ace),(Spades,Ace),(Diamonds,Ace)]) = false
+val test82= all_same_color([(Hearts, Ace)]) = true
+val test83= all_same_color([(Spades, Ace), (Hearts, Ace)]) = false
+val test84= all_same_color([(Hearts, Ace), (Hearts, Ace), (Hearts, Ace), (Hearts, Ace) ]) = true
+val test8r= all_same_color([(Hearts, Ace), (Spades, Ace), (Hearts, Ace), (Hearts, Ace) ]) = false
+val test85= all_same_color([(Hearts, Ace), (Hearts, Ace), (Spades, Ace), (Hearts, Ace) ] )=false
+
+
 
 val test9 = sum_cards([(Clubs, Num 2),(Clubs, Num 2)]) = 4
+val test9 = sum_cards([(Clubs, Num 1),(Clubs, Num 2)]) = 3
 
 val test10 = score([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
 
@@ -56,4 +73,5 @@ val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                          42);
                false)
               handle IllegalMove => true)
+(*
 *)

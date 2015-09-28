@@ -62,3 +62,61 @@ datatype move = Discard of card | Draw
 exception IllegalMove
 
 (* put your solutions for problem 2 here *)
+fun card_color (card) =
+    case card of
+      (Clubs, _) => Black
+    | (Spades, _) => Black
+    | _          => Red
+fun card_value (card) =
+    case card of (_, Ace) => 11
+    | (_, Queen) => 10
+    | (_, Jack) => 10
+    | (_, King) => 10
+    | (_, Num i) => i
+fun remove_card (cs, c, e) =
+    let fun subroutine (cs, c) =
+        case cs of [] => []
+        | head::tail => if c = head then tail else head::subroutine(tail, c)
+    in
+       let val cards = subroutine(cs, c) in
+           if cs = cards then raise e else cards
+       end
+    end
+
+fun all_same_color (cs) =
+    case cs of [] => true
+    | c::[] => true
+    | c0::tail => (case tail of
+                   c1::rest => (card_color(c0) = card_color(c1))
+                               andalso all_same_color(rest) )
+fun sum_cards (cs) =
+    let fun helper (cs, acc) =
+      case cs of [] => acc
+      | c::tail => helper(tail, acc+card_value(c))
+    in
+      helper(cs, 0)
+    end
+
+fun score (cs, goal) =
+    let fun prelim() =
+      let val sum = sum_cards(cs) in
+        if sum > goal then 3*(sum-goal) else goal - sum
+      end
+    in
+      if all_same_color(cs)
+      then prelim() div 2
+      else prelim()
+    end
+
+fun officiate (cs, ms, goal) =
+    let fun game_state(hand, deck, goal, moves) =
+      case moves of [] => score(hand, goal)
+      | Discard(card)::movesLeft => game_state(remove_card(hand, card, IllegalMove), deck, goal, movesLeft)
+      | Draw::movesLeft => (case deck of [] => score(hand, goal)
+                 | nextCard::newDeck => if sum_cards(nextCard::hand) > goal
+                                        then score(nextCard::hand, goal)
+                                        else game_state(nextCard::hand, newDeck, goal, movesLeft)
+                )
+    in
+        game_state([], cs, goal, ms)
+    end
